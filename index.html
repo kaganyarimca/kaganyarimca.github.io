@@ -1,0 +1,369 @@
+<title>Kağannnnnnn · Yazılım Mühendisi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Kağyyyan — yazılım mühendisi. Projeler, deneyim ve iletişim.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tek sütunlu editoryal akış, solda mono "satır numarası" etiketleri; deneyim bölümü git log gibi okunur */
+:root {
+  --bg: #F3F4F7;
+  --surface: #FFFFFF;
+  --ink: #12161D;
+  --muted: #5A6372;
+  --line: #DCE0E8;
+  --accent: #2346E8;
+  --accent-soft: #E3E8FD;
+  --mark: #B45309;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --maxw: 1040px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1015; --surface: #151A22; --ink: #E7EAF0; --muted: #96A0B0;
+    --line: #262D39; --accent: #7F97FF; --accent-soft: #1C2442; --mark: #F0A54A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1015; --surface: #151A22; --ink: #E7EAF0; --muted: #96A0B0;
+  --line: #262D39; --accent: #7F97FF; --accent-soft: #1C2442; --mark: #F0A54A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 400 1rem/1.65 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.wrap {
+  max-width: var(--maxw); margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.ph { background: var(--accent-soft); border-radius: 3px; padding: 0 .2em; }
+
+/* Header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+header.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { font: 500 .9rem var(--font-mono); color: var(--ink); text-decoration: none; }
+.logo b { color: var(--accent); font-weight: 500; }
+nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+nav a { font: 500 .85rem var(--font-body); color: var(--muted); text-decoration: none; }
+nav a:hover { color: var(--ink); }
+@media (max-width: 680px) { nav ul { gap: 14px; } nav li.opt { display: none; } }
+
+/* Hero */
+.hero .wrap { padding-block: 88px 72px; display: grid; gap: 28px; }
+.prompt { font: 400 .85rem var(--font-mono); color: var(--muted); }
+.prompt span { color: var(--accent); }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); font-weight: 800; line-height: .98; letter-spacing: -.035em; max-width: 14ch; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { font-size: 1.15rem; color: var(--muted); max-width: 56ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 .95rem var(--font-body); text-decoration: none;
+  padding: 11px 18px; border-radius: 8px; border: 1px solid var(--ink);
+  transition: transform .15s ease, background .15s ease;
+}
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn.ghost { color: var(--ink); background: transparent; border-color: var(--line); }
+.btn:hover { transform: translateY(-1px); }
+.status { display: inline-flex; align-items: center; gap: 8px; font: 400 .8rem var(--font-mono); color: var(--muted); }
+.status i { width: 8px; height: 8px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 0 4px color-mix(in srgb, #16A34A 20%, transparent); }
+
+/* Sections */
+section.block { border-top: 1px solid var(--line); }
+section.block > .wrap { padding-block: 72px; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; }
+@media (max-width: 760px) { section.block > .wrap { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 56px; } }
+.label { font: 500 .78rem var(--font-mono); color: var(--muted); letter-spacing: .04em; padding-top: 6px; }
+.label span { color: var(--accent); }
+.block h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: 20px; }
+.body-col { min-width: 0; display: grid; gap: 18px; }
+.body-col > p { max-width: 64ch; }
+
+/* About facts */
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin-top: 8px; }
+.facts div { padding: 16px 18px; border-left: 1px solid var(--line); min-width: 0; }
+.facts div:first-child { border-left: 0; }
+.facts dt { font: 400 .75rem var(--font-mono); color: var(--muted); letter-spacing: .03em; }
+.facts dd { margin: 4px 0 0; font: 600 1.05rem var(--font-body); }
+@media (max-width: 560px) { .facts { grid-template-columns: minmax(0, 1fr); } .facts div { border-left: 0; border-top: 1px solid var(--line); } .facts div:first-child { border-top: 0; } }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; }
+@media (max-width: 560px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+.skills h3 { font: 500 .78rem var(--font-mono); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.chips li { font: 400 .85rem var(--font-mono); padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.chips li.core { border-color: var(--accent); color: var(--accent); }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 640px) { .projects { grid-template-columns: minmax(0, 1fr); } }
+.proj {
+  display: grid; grid-template-rows: auto auto 1fr auto; gap: 10px;
+  padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface);
+  transition: border-color .15s ease, transform .15s ease; min-width: 0;
+}
+.proj:hover { border-color: var(--accent); transform: translateY(-2px); }
+.proj .repo { font: 400 .8rem var(--font-mono); color: var(--muted); overflow-wrap: anywhere; }
+.proj h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.01em; }
+.proj p { color: var(--muted); font-size: .95rem; }
+.proj .meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-top: 6px; border-top: 1px dashed var(--line); }
+.proj .stack { font: 400 .78rem var(--font-mono); color: var(--muted); }
+.proj .links { display: flex; gap: 14px; font: 500 .85rem var(--font-body); }
+
+/* Experience as git log */
+.log { list-style: none; margin: 0; padding: 0; display: grid; }
+.commit { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 14px; }
+.commit .rail { position: relative; display: flex; justify-content: center; }
+.commit .rail::before { content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: var(--line); }
+.commit:first-child .rail::before { top: 12px; }
+.commit:last-child .rail::before { bottom: auto; height: 12px; }
+.commit .dot { position: relative; margin-top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.commit:first-child .dot { background: var(--accent); }
+.commit .entry { padding-bottom: 30px; min-width: 0; display: grid; gap: 6px; }
+.commit .hash { font: 400 .78rem var(--font-mono); color: var(--mark); }
+.commit .hash .ref { color: var(--accent); }
+.commit h3 { font-size: 1.15rem; font-weight: 700; }
+.commit h3 span { font-weight: 500; color: var(--muted); }
+.commit .date { font: 400 .8rem var(--font-mono); color: var(--muted); }
+.commit ul { margin: 4px 0 0; padding-left: 18px; color: var(--muted); }
+.commit ul li { margin-top: 2px; }
+
+/* Contact */
+.contact h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -.03em; max-width: 16ch; }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.mail code { font: 500 clamp(1rem, 2.6vw, 1.35rem) var(--font-mono); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; user-select: all; overflow-wrap: anywhere; }
+.copy { font: 500 .85rem var(--font-body); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.copy:hover { border-color: var(--accent); }
+.socials { display: flex; flex-wrap: wrap; gap: 10px 22px; list-style: none; padding: 0; margin: 0; font: 500 .95rem var(--font-body); }
+
+footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font: 400 .78rem var(--font-mono); color: var(--muted); }
+
+@keyframes rise { from { transform: translateY(10px); opacity: .001; } to { transform: none; opacity: 1; } }
+.hero .wrap > * { animation: rise .6s ease both; }
+.hero .wrap > *:nth-child(2) { animation-delay: .06s; }
+.hero .wrap > *:nth-child(3) { animation-delay: .12s; }
+.hero .wrap > *:nth-child(4) { animation-delay: .18s; }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">~/<b>kagan</b></a>
+    <nav aria-label="Ana menü">
+      <ul>
+        <li class="opt"><a href="#hakkimda">Hakkımda</a></li>
+        <li class="opt"><a href="#yetenekler">Yetenekler</a></li>
+        <li><a href="#projeler">Projeler</a></li>
+        <li><a href="#deneyim">Deneyim</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="prompt"><span>$</span> whoami</p>
+      <h1>Kağannnyyyn <span class="ph">Soyad</span>. Sağlam yazılımlar <em>inşa ediyorum.</em></h1>
+      <p class="lede">Yazılım mühendisiyim. <span class="ph">Backend sistemleri, web uygulamaları ve geliştirici araçları</span> üzerine çalışıyorum. Karmaşık problemleri sade, test edilebilir ve uzun ömürlü koda dönüştürmeyi seviyorum.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projeler">Projelerime bak</a>
+        <a class="btn ghost" href="#iletisim">İletişime geç</a>
+      </div>
+      <p class="status"><i aria-hidden="true"></i> Yeni projelere açık · <span class="ph">İstanbul</span>, Türkiye</p>
+    </div>
+  </section>
+
+  <section class="block" id="hakkimda">
+    <div class="wrap">
+      <p class="label"><span>01</span> / hakkımda</p>
+      <div class="body-col">
+        <h2>Kodu okunur, sistemi sade tutarım.</h2>
+        <p><span class="ph">X yıldır</span> yazılım geliştiriyorum. Şu an <span class="ph">Şirket Adı</span>'nda <span class="ph">ürün ekibinin</span> bir parçası olarak ölçeklenebilir servisler ve kullanıcıya dokunan arayüzler geliştiriyorum.</p>
+        <p>İşime yaklaşımım basit: önce problemi anlamak, sonra en az hareketli parçayla çözmek. Kod incelemelerini, iyi yazılmış dokümantasyonu ve ekip arkadaşlarımın işini kolaylaştıran araçları önemsiyorum. İş dışında <span class="ph">açık kaynak projelere katkı veriyor, teknik yazılar yazıyorum</span>.</p>
+        <dl class="facts">
+          <div><dt>deneyim</dt><dd><span class="ph">5+ yıl</span></dd></div>
+          <div><dt>odak</dt><dd><span class="ph">Backend &amp; Web</span></dd></div>
+          <div><dt>eğitim</dt><dd><span class="ph">Bilgisayar Müh., Üniversite</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="yetenekler">
+    <div class="wrap">
+      <p class="label"><span>02</span> / yetenekler</p>
+      <div class="body-col">
+        <h2>Günlük olarak kullandığım araçlar</h2>
+        <div class="skills">
+          <div>
+            <h3>Diller</h3>
+            <ul class="chips"><li class="core">TypeScript</li><li class="core">Python</li><li>Go</li><li>Java</li><li>SQL</li></ul>
+          </div>
+          <div>
+            <h3>Frontend</h3>
+            <ul class="chips"><li class="core">React</li><li>Next.js</li><li>Tailwind CSS</li><li>Vite</li></ul>
+          </div>
+          <div>
+            <h3>Backend &amp; Veri</h3>
+            <ul class="chips"><li class="core">Node.js</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li><li>Kafka</li></ul>
+          </div>
+          <div>
+            <h3>Altyapı &amp; Araçlar</h3>
+            <ul class="chips"><li class="core">Docker</li><li>Kubernetes</li><li>AWS</li><li>GitHub Actions</li><li>Terraform</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projeler">
+    <div class="wrap">
+      <p class="label"><span>03</span> / projeler</p>
+      <div class="body-col">
+        <h2>Seçili projeler</h2>
+        <div class="projects">
+          <article class="proj">
+            <p class="repo">github.com/kagan/<span class="ph">proje-bir</span></p>
+            <h3>Proje Adı Bir</h3>
+            <p>Gerçek zamanlı bildirim servisi. Günde milyonlarca olayı kuyruktan okuyup kullanıcılara WebSocket üzerinden iletir. Gecikmeyi <span class="ph">%40</span> azalttı.</p>
+            <div class="meta"><span class="stack">Go · Kafka · Redis</span><span class="links"><a href="#" aria-label="Proje Bir kaynak kodu">Kod</a><a href="#" aria-label="Proje Bir canlı demo">Demo</a></span></div>
+          </article>
+          <article class="proj">
+            <p class="repo">github.com/kagan/<span class="ph">proje-iki</span></p>
+            <h3>Proje Adı İki</h3>
+            <p>Ekiplerin iç dokümantasyonunu tek yerde aranabilir hale getiren web uygulaması. Tam metin arama ve rol tabanlı erişim içerir.</p>
+            <div class="meta"><span class="stack">Next.js · PostgreSQL</span><span class="links"><a href="#" aria-label="Proje İki kaynak kodu">Kod</a><a href="#" aria-label="Proje İki canlı demo">Demo</a></span></div>
+          </article>
+          <article class="proj">
+            <p class="repo">github.com/kagan/<span class="ph">proje-uc</span></p>
+            <h3>Proje Adı Üç</h3>
+            <p>Geliştiriciler için komut satırı aracı. Ortam değişkenlerini doğrular, eksik ayarları kurulumdan önce yakalar.</p>
+            <div class="meta"><span class="stack">Python · Typer</span><span class="links"><a href="#" aria-label="Proje Üç kaynak kodu">Kod</a></span></div>
+          </article>
+          <article class="proj">
+            <p class="repo">github.com/kagan/<span class="ph">proje-dort</span></p>
+            <h3>Proje Adı Dört</h3>
+            <p>Açık kaynak katkı: popüler bir kütüphaneye önbellekleme katmanı ekledim ve test kapsamını genişlettim.</p>
+            <div class="meta"><span class="stack">TypeScript · Jest</span><span class="links"><a href="#" aria-label="Proje Dört pull request">PR</a></span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="deneyim">
+    <div class="wrap">
+      <p class="label"><span>04</span> / deneyim</p>
+      <div class="body-col">
+        <h2>git log --career</h2>
+        <ol class="log">
+          <li class="commit">
+            <div class="rail"><span class="dot"></span></div>
+            <div class="entry">
+              <p class="hash">a3f9c21 <span class="ref">(HEAD -&gt; current)</span></p>
+              <h3>Kıdemli Yazılım Mühendisi <span>· <span class="ph">Şirket A</span></span></h3>
+              <p class="date"><span class="ph">2023</span> – Günümüz</p>
+              <ul>
+                <li>Ödeme altyapısını monolitten mikroservislere taşıyan ekibe liderlik ettim.</li>
+                <li>CI süresini <span class="ph">18 dakikadan 6 dakikaya</span> indirdim.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="commit">
+            <div class="rail"><span class="dot"></span></div>
+            <div class="entry">
+              <p class="hash">7be04d8</p>
+              <h3>Yazılım Mühendisi <span>· <span class="ph">Şirket B</span></span></h3>
+              <p class="date"><span class="ph">2021 – 2023</span></p>
+              <ul>
+                <li>Müşteri paneli için React tabanlı yeni arayüzü geliştirdim.</li>
+                <li>REST API'lerin performansını izleme ve uyarı sistemini kurdum.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="commit">
+            <div class="rail"><span class="dot"></span></div>
+            <div class="entry">
+              <p class="hash">1c02e5f <span class="ref">(tag: ilk-commit)</span></p>
+              <h3>Stajyer Yazılım Geliştirici <span>· <span class="ph">Şirket C</span></span></h3>
+              <p class="date"><span class="ph">2020</span></p>
+              <ul>
+                <li>İç araçlar için otomasyon betikleri ve birim testleri yazdım.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact" id="iletisim">
+    <div class="wrap">
+      <p class="label"><span>05</span> / iletişim</p>
+      <div class="body-col">
+        <h2>Birlikte bir şey inşa edelim.</h2>
+        <p>Bir proje fikriniz, iş teklifiniz ya da sadece teknik bir sorunuz varsa yazın. Genellikle bir gün içinde dönüş yapıyorum.</p>
+        <div class="mail">
+          <code id="email">merhaba@kagan.dev</code>
+          <button class="copy" id="copy-btn" type="button">Kopyala</button>
+        </div>
+        <ul class="socials">
+          <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="#" >Özgeçmiş (PDF)</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Kağan
+    </span>
+    <span>build: passing ✓</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copy-btn');
+    var code = document.getElementById('email');
+    btn.addEventListener('click', function () {
+      var text = code.textContent.trim();
+      function selectFallback() {
+        var r = document.createRange(); r.selectNodeContents(code);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Seçildi, Ctrl+C ile kopyala';
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = 'Kopyalandı';
+          setTimeout(function () { btn.textContent = 'Kopyala'; }, 1800);
+        }, selectFallback);
+      } catch (e) { selectFallback(); }
+    });
+  })();
+</script>
