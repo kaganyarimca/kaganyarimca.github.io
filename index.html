@@ -5,19 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="k464AKtDwaZrZorFraRp46uJy99E0wL7XVzFmORej24" />
 <title>Kağan Yarımca · Yazılım Mühendisi</title>
-<meta name="description" content="Kağan Yarımca — yazılım mühendisi. Python, SQL Server, büyük veri ve veri analizi. Software engineer focused on Python, SQL and data analysis.">
+<meta name="description" content="Kağan Yarımca — yazılım mühendisi. Veri analizi, makine öğrenmesi, Python ve SQL Server. Software engineer focused on data analysis and machine learning.">
 <meta name="author" content="Kağan Yarımca">
 <link rel="canonical" href="https://kaganyarimca.com/">
-<meta property="og:type" content="website">
+<meta property="og:type" content="profile">
 <meta property="og:title" content="Kağan Yarımca · Yazılım Mühendisi">
-<meta property="og:description" content="Python, SQL Server, büyük veri ve veri analizi üzerine çalışan yazılım mühendisi.">
+<meta property="og:description" content="Veri analizi, makine öğrenmesi ve yapay zeka üzerine çalışan yazılım mühendisi.">
 <meta property="og:url" content="https://kaganyarimca.com/">
+<meta property="og:image" content="https://kaganyarimca.com/kagan.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kağan Yarımca",
+  "jobTitle": "Yazılım Mühendisi",
+  "url": "https://kaganyarimca.com/",
+  "image": "https://kaganyarimca.com/kagan.jpg",
+  "alumniOf": "İstanbul Aydın Üniversitesi",
+  "sameAs": ["https://github.com/kaganyarimca", "https://www.linkedin.com/in/kagan-yarimca/"]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232346E8'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-size='30' font-weight='700' fill='white'%3EKY%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: tek sütunlu akış, solda mono bölüm etiketleri; eğitim bölümü git log gibi okunur */
+/* Layout: tek sütunlu akış, solda mono bölüm etiketleri; deneyim bölümü zaman çizelgesi olarak okunur */
 :root {
   --bg: #F3F4F7;
   --surface: #FFFFFF;
@@ -64,6 +77,8 @@ p { margin: 0; }
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 12px; z-index: 10; background: var(--ink); color: var(--bg); padding: 8px 12px; border-radius: 6px; }
 
 /* Header */
 header.top {
@@ -73,24 +88,30 @@ header.top {
   border-bottom: 1px solid var(--line);
 }
 header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-.logo { font: 500 .9rem var(--font-mono); color: var(--ink); text-decoration: none; white-space: nowrap; }
+.logo { font: 600 1rem var(--font-body); color: var(--ink); text-decoration: none; white-space: nowrap; }
 .logo b { color: var(--accent); font-weight: 500; }
 .nav-right { display: flex; align-items: center; gap: 22px; }
-nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
 nav a { font: 500 .85rem var(--font-body); color: var(--muted); text-decoration: none; }
 nav a:hover { color: var(--ink); }
 .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; }
 .lang button { font: 500 .75rem var(--font-mono); padding: 5px 9px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
 .lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
-@media (max-width: 720px) { nav { display: none; } }
+@media (max-width: 760px) { nav { display: none; } }
 
 /* Hero */
-.hero .wrap { padding-block: 88px 72px; display: grid; gap: 28px; }
+.hero .wrap { padding-block: 80px 64px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; }
+.hero-text { display: grid; gap: 26px; min-width: 0; }
+.photo { width: 220px; height: 220px; border-radius: 24px; object-fit: cover; border: 1px solid var(--line); background: var(--surface); max-width: 100%; }
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 48px; gap: 28px; }
+  .photo { width: 128px; height: 128px; border-radius: 18px; order: -1; }
+}
 .prompt { font: 400 .85rem var(--font-mono); color: var(--muted); }
 .prompt span { color: var(--accent); }
-.hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 800; line-height: 1; letter-spacing: -.035em; max-width: 15ch; }
+.hero h1 { font-size: clamp(2.4rem, 6.4vw, 4.6rem); font-weight: 800; line-height: 1; letter-spacing: -.035em; max-width: 15ch; }
 .hero h1 em { font-style: normal; color: var(--accent); }
-.hero .lede { font-size: 1.15rem; color: var(--muted); max-width: 58ch; }
+.hero .lede { font-size: 1.12rem; color: var(--muted); max-width: 58ch; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -122,21 +143,43 @@ section.block > .wrap { padding-block: 72px; display: grid; grid-template-column
 .facts dd { margin: 4px 0 0; font: 600 1.02rem var(--font-body); }
 @media (max-width: 560px) { .facts { grid-template-columns: minmax(0, 1fr); } .facts div { border-left: 0; border-top: 1px solid var(--line); } .facts div:first-child { border-top: 0; } }
 
-/* Skills */
-.chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
-.chips li { font: 400 .95rem var(--font-mono); padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
-.chips li.core { border-color: var(--accent); color: var(--accent); }
-
-/* Education as git log */
+/* Experience timeline */
 .log { list-style: none; margin: 0; padding: 0; display: grid; }
 .commit { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 14px; }
 .commit .rail { position: relative; display: flex; justify-content: center; }
-.commit .dot { position: relative; margin-top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--accent); }
-.commit .entry { min-width: 0; display: grid; gap: 6px; }
+.commit .rail::before { content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: var(--line); }
+.commit:first-child .rail::before { top: 12px; }
+.commit:last-child .rail::before { bottom: auto; height: 12px; }
+.commit .dot { position: relative; margin-top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.commit:first-child .dot { background: var(--accent); }
+.commit .entry { padding-bottom: 32px; min-width: 0; display: grid; gap: 6px; }
+.commit:last-child .entry { padding-bottom: 0; }
 .commit .hash { font: 400 .78rem var(--font-mono); color: var(--mark); }
 .commit .hash .ref { color: var(--accent); }
-.commit h3 { font-size: 1.2rem; font-weight: 700; }
+.commit h3 { font-size: 1.15rem; font-weight: 700; }
+.commit h3 span { font-weight: 500; color: var(--muted); }
+.commit .date { font: 400 .8rem var(--font-mono); color: var(--muted); }
+.commit ul { margin: 4px 0 0; padding-left: 18px; color: var(--muted); }
+.commit ul li { margin-top: 3px; }
 .commit .sub { color: var(--muted); }
+.num { font-family: var(--font-mono); font-size: .92em; color: var(--ink); font-weight: 500; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; }
+@media (max-width: 560px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+.skills h3 { font: 500 .78rem var(--font-mono); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.chips li { font: 400 .85rem var(--font-mono); padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.chips li.core { border-color: var(--accent); color: var(--accent); }
+
+/* Certificates */
+.certs { list-style: none; margin: 0; padding: 0; display: grid; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.certs li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 16px 18px; border-top: 1px solid var(--line); }
+.certs li:first-child { border-top: 0; }
+.certs strong { font-weight: 600; }
+.certs .when { font: 400 .8rem var(--font-mono); color: var(--muted); white-space: nowrap; }
+.certs .what { grid-column: 1 / -1; color: var(--muted); font-size: .93rem; }
+.edu-sub { font: 500 .78rem var(--font-mono); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin: 14px 0 0; }
 
 /* GitHub card */
 .gh {
@@ -160,18 +203,20 @@ section.block > .wrap { padding-block: 72px; display: grid; grid-template-column
 footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font: 400 .78rem var(--font-mono); color: var(--muted); }
 
 @keyframes rise { from { transform: translateY(10px); } to { transform: none; } }
-.hero .wrap > * { animation: rise .6s ease both; }
+.hero-text > * { animation: rise .6s ease both; }
 </style>
 </head>
 <body>
+<a class="skip" href="#hakkimda" data-i18n="skip">İçeriğe geç</a>
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top">~/<b>kaganyarimca</b></a>
+    <a class="logo" href="#top">Kağan <b>Yarımca</b></a>
     <div class="nav-right">
       <nav aria-label="Menü">
         <ul>
           <li><a href="#hakkimda" data-i18n="nav.about">Hakkımda</a></li>
+          <li><a href="#deneyim" data-i18n="nav.exp">Deneyim</a></li>
           <li><a href="#yetenekler" data-i18n="nav.skills">Yetenekler</a></li>
           <li><a href="#egitim" data-i18n="nav.edu">Eğitim</a></li>
           <li><a href="#iletisim" data-i18n="nav.contact">İletişim</a></li>
@@ -188,14 +233,16 @@ footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); disp
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <p class="prompt"><span>$</span> whoami</p>
-      <h1 data-i18n-html="hero.title">Kağan Yarımca. Veriyi <em>anlamlı sonuçlara</em> dönüştürüyorum.</h1>
-      <p class="lede" data-i18n="hero.lede">Yazılım mühendisiyim. Python, SQL Server ve büyük veri araçlarıyla veri analizi üzerine çalışıyorum.</p>
-      <div class="cta">
-        <a class="btn primary" href="https://github.com/kaganyarimca" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn ghost" href="#iletisim" data-i18n="hero.contact">İletişime geç</a>
+      <div class="hero-text">
+        <h1 data-i18n-html="hero.title">Kağan Yarımca. Veriyi <em>anlamlı sonuçlara</em> dönüştürüyorum.</h1>
+        <p class="lede" data-i18n="hero.lede">Yazılım mühendisiyim. Veri analizi, makine öğrenmesi ve yapay zeka üzerine çalışıyorum; Python ve SQL Server ile veriden ölçülebilir sonuçlar çıkarıyorum.</p>
+        <div class="cta">
+          <a class="btn primary" href="#deneyim" data-i18n="hero.exp">Deneyimime bak</a>
+          <a class="btn ghost" href="#iletisim" data-i18n="hero.contact">İletişime geç</a>
+        </div>
+        <p class="status"><i aria-hidden="true"></i> <span data-i18n="hero.status">İş fırsatlarına açık · Aydın, Türkiye</span></p>
       </div>
-      <p class="status"><i aria-hidden="true"></i> <span data-i18n="hero.status">İş fırsatlarına açık · Aydın, Türkiye</span></p>
+      <img class="photo" src="kagan.jpg" width="360" height="360" alt="Kağan Yarımca">
     </div>
   </section>
 
@@ -204,45 +251,64 @@ footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); disp
       <p class="label"><span>01</span> / <span data-i18n="label.about">hakkımda</span></p>
       <div class="body-col">
         <h2 data-i18n="about.title">Merhaba, ben Kağan.</h2>
-        <p data-i18n="about.p1">İstanbul Aydın Üniversitesi'nde İngilizce Yazılım Mühendisliği eğitimi aldım. Kariyerimin başındayım ve veriyle çalışmayı seviyorum: veriyi toplamak, düzenlemek, sorgulamak ve ondan karar vermeye yardımcı olacak sonuçlar çıkarmak.</p>
-        <p data-i18n="about.p2">Python ve SQL Server ile veri analizi yapıyor, büyük veri teknolojileri üzerine kendimi geliştiriyorum.</p>
+        <p data-i18n="about.p1">İstanbul Aydın Üniversitesi'nden 2024'te mezun olmuş bir yazılım mühendisiyim. Lisans eğitimim boyunca yapay zeka, veri analizi ve veritabanı yönetimi alanlarında kendimi geliştirdim; stajlarımda ve iş deneyimimde makine öğrenmesi modelleri, veri temizleme ve SQL Server üzerinde çalıştım.</p>
+        <p data-i18n="about.p2">Takım çalışmasına yatkınım, öğrenmeye açığım ve problemlere çözüm odaklı yaklaşırım. İş dışında satranç ve basketbol oynuyor, gitar çalıyor ve düzenli spor yapıyorum.</p>
         <dl class="facts">
-          <div><dt data-i18n="facts.loc">konum</dt><dd data-i18n="facts.locv">Aydın, Türkiye</dd></div>
-          <div><dt data-i18n="facts.focus">odak</dt><dd data-i18n="facts.focusv">Veri analizi</dd></div>
-          <div><dt data-i18n="facts.exp">deneyim</dt><dd data-i18n="facts.expv">0-1 yıl</dd></div>
+          <div><dt data-i18n="facts.focus">odak</dt><dd data-i18n="facts.focusv">Veri analizi &amp; YZ</dd></div>
+          <div><dt data-i18n="facts.edu">mezuniyet</dt><dd data-i18n="facts.eduv">2024 · Yazılım Müh.</dd></div>
+          <div><dt data-i18n="facts.lang">yabancı dil</dt><dd data-i18n="facts.langv">İngilizce</dd></div>
         </dl>
       </div>
     </div>
   </section>
 
-  <section class="block" id="yetenekler">
+  <section class="block" id="deneyim">
     <div class="wrap">
-      <p class="label"><span>02</span> / <span data-i18n="label.skills">yetenekler</span></p>
+      <p class="label"><span>02</span> / <span data-i18n="label.exp">deneyim</span></p>
       <div class="body-col">
-        <h2 data-i18n="skills.title">Çalıştığım teknolojiler</h2>
-        <ul class="chips">
-          <li class="core">Python</li>
-          <li class="core">SQL</li>
-          <li>SQL Server</li>
-          <li data-i18n="skills.bigdata">Büyük Veri</li>
-          <li data-i18n="skills.analysis">Veri Analizi</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="egitim">
-    <div class="wrap">
-      <p class="label"><span>03</span> / <span data-i18n="label.edu">eğitim</span></p>
-      <div class="body-col">
-        <h2>git log --education</h2>
+        <h2 data-i18n="exp.title">İş deneyimi</h2>
         <ol class="log">
           <li class="commit">
             <div class="rail"><span class="dot"></span></div>
             <div class="entry">
-              <p class="hash">a3f9c21 <span class="ref">(HEAD -&gt; main)</span></p>
-              <h3 data-i18n="edu.dept">Yazılım Mühendisliği (İngilizce)</h3>
-              <p class="sub" data-i18n="edu.school">İstanbul Aydın Üniversitesi</p>
+              <h3><span data-i18n="exp1.title">Veri Analisti</span> <span>· Aitial Logiciel SAS</span></h3>
+              <p class="date" data-i18n="exp1.date">Oca 2025 – Şub 2025</p>
+              <ul>
+                <li data-i18n-html="exp1.b1">Tahmin, sınıflandırma ve yaklaşıklama modellerinin geliştirilip test edilmesinde kıdemli mühendislere destek oldum; hata oranlarını <span class="num">%12</span> azaltan projeye katkı verdim.</li>
+                <li data-i18n-html="exp1.b2">Görüntü tanıma algoritmalarını iyileştiren çalışmada tespit oranlarında <span class="num">%10</span> iyileşme sağlandı.</li>
+                <li data-i18n-html="exp1.b3">Büyük veri kümelerinde veri toplama, temizleme ve özellik çıkarımı yaptım; veri tutarsızlıklarını <span class="num">%15</span> azalttım.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="commit">
+            <div class="rail"><span class="dot"></span></div>
+            <div class="entry">
+              <h3><span data-i18n="exp2.title">Stajyer</span> <span>· Fineksus</span></h3>
+              <p class="date" data-i18n="exp2.date">Kas 2023 – Oca 2024</p>
+              <ul>
+                <li data-i18n="exp2.b1">C# ve .NET teknolojileriyle çalıştım, Docker üzerinde uygulamalar yaptım.</li>
+                <li data-i18n="exp2.b2">MS SQL Server ile veri modelleme, sorgulama ve performans iyileştirme üzerine deneyim kazandım.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="commit">
+            <div class="rail"><span class="dot"></span></div>
+            <div class="entry">
+              <h3><span data-i18n="exp3.title">Stajyer</span> <span>· Mevasoft Yazılım ve Danışmanlık</span></h3>
+              <p class="date" data-i18n="exp3.date">May 2023 – Haz 2023</p>
+              <ul>
+                <li data-i18n="exp3.b1">Anahtar kelime araştırması, içerik optimizasyonu ve SEO uyumlu metin yazımı üzerine çalıştım.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="commit">
+            <div class="rail"><span class="dot"></span></div>
+            <div class="entry">
+              <h3><span data-i18n="exp4.title">Yapay Zeka Stajyeri</span> <span>· Okatan ARGE</span></h3>
+              <p class="date" data-i18n="exp4.date">Eki 2022 – Oca 2023</p>
+              <ul>
+                <li data-i18n="exp4.b1">Python ve makine öğrenmesi kütüphaneleriyle projeler geliştirdim; Git ve GitHub ile sürüm kontrolünü öğrendim.</li>
+              </ul>
             </div>
           </li>
         </ol>
@@ -250,9 +316,95 @@ footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); disp
     </div>
   </section>
 
+  <section class="block" id="yetenekler">
+    <div class="wrap">
+      <p class="label"><span>03</span> / <span data-i18n="label.skills">yetenekler</span></p>
+      <div class="body-col">
+        <h2 data-i18n="skills.title">Çalıştığım teknolojiler</h2>
+        <div class="skills">
+          <div>
+            <h3 data-i18n="skills.ai">Veri &amp; Yapay Zeka</h3>
+            <ul class="chips">
+              <li class="core">Python</li>
+              <li class="core" data-i18n="skills.analysis">Veri Analizi</li>
+              <li data-i18n="skills.ml">Makine Öğrenmesi</li>
+              <li data-i18n="skills.nn">Sinir Ağları</li>
+              <li>NLP</li>
+              <li>TensorFlow</li>
+              <li data-i18n="skills.bigdata">Büyük Veri</li>
+              <li data-i18n="skills.deploy">Model Dağıtımı</li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n="skills.db">Veritabanı</h3>
+            <ul class="chips">
+              <li class="core">MS SQL Server</li>
+              <li>SQL</li>
+              <li data-i18n="skills.modeling">Veri Modelleme</li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n="skills.prog">Programlama &amp; Araçlar</h3>
+            <ul class="chips">
+              <li>C# / .NET</li>
+              <li>Java</li>
+              <li>C++</li>
+              <li>HTML · CSS · JavaScript</li>
+              <li>Docker</li>
+              <li>Git &amp; GitHub</li>
+            </ul>
+          </div>
+          <div>
+            <h3 data-i18n="skills.soft">Yetkinlikler</h3>
+            <ul class="chips">
+              <li data-i18n="skills.pm">Proje Yönetimi</li>
+              <li data-i18n="skills.tm">Zaman Yönetimi</li>
+              <li data-i18n="skills.at">Analitik Düşünme</li>
+              <li data-i18n="skills.ps">Problem Çözme</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="egitim">
+    <div class="wrap">
+      <p class="label"><span>04</span> / <span data-i18n="label.edu">eğitim</span></p>
+      <div class="body-col">
+        <h2 data-i18n="edu.title">Eğitim ve sertifikalar</h2>
+        <ul class="certs">
+          <li>
+            <strong data-i18n="edu.dept">Yazılım Mühendisliği (İngilizce)</strong>
+            <span class="when">2019 – 2024</span>
+            <span class="what" data-i18n="edu.school">İstanbul Aydın Üniversitesi</span>
+          </li>
+        </ul>
+        <p class="edu-sub" data-i18n="edu.certs">Sertifikalar ve kurslar</p>
+        <ul class="certs">
+          <li>
+            <strong data-i18n="c1.t">C++ ile Yapay Zeka Programlama</strong>
+            <span class="when" data-i18n="c1.d">Mar 2025</span>
+            <span class="what" data-i18n="c1.w">Gamelab İstanbul · Makine görmesi, doğal dil işleme, veri analizi</span>
+          </li>
+          <li>
+            <strong data-i18n="c2.t">Proje Yönetimi</strong>
+            <span class="when" data-i18n="c2.d">Mar 2025</span>
+            <span class="what" data-i18n="c2.w">SCA Social · Proje yönetimi, bilişim hukuku, yapay zeka ve veri bilimi</span>
+          </li>
+          <li>
+            <strong data-i18n="c4.t">Zaman Yönetimi</strong>
+            <span class="when" data-i18n="c4.d">Mar 2022</span>
+            <span class="what">Truva Akademi</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="projeler">
     <div class="wrap">
-      <p class="label"><span>04</span> / <span data-i18n="label.projects">projeler</span></p>
+      <p class="label"><span>05</span> / <span data-i18n="label.projects">projeler</span></p>
       <div class="body-col">
         <h2 data-i18n="projects.title">Çalışmalarım</h2>
         <a class="gh" href="https://github.com/kaganyarimca" target="_blank" rel="noopener">
@@ -266,10 +418,10 @@ footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); disp
 
   <section class="block contact" id="iletisim">
     <div class="wrap">
-      <p class="label"><span>05</span> / <span data-i18n="label.contact">iletişim</span></p>
+      <p class="label"><span>06</span> / <span data-i18n="label.contact">iletişim</span></p>
       <div class="body-col">
         <h2 data-i18n="contact.title">Birlikte çalışalım.</h2>
-        <p data-i18n="contact.p">İş fırsatları, staj ya da proje fikirleri için bana e-posta veya LinkedIn üzerinden ulaşabilirsiniz.</p>
+        <p data-i18n="contact.p">İş fırsatları ya da proje fikirleri için bana e-posta veya LinkedIn üzerinden ulaşabilirsiniz.</p>
         <div class="mail">
           <a class="addr" id="email" href="mailto:kyarimca@hotmail.com">kyarimca@hotmail.com</a>
           <button class="copy" id="copy-btn" type="button" data-i18n="contact.copy">Kopyala</button>
@@ -278,6 +430,7 @@ footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); disp
           <li><a href="https://www.linkedin.com/in/kagan-yarimca/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://github.com/kaganyarimca" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
+        <p class="sr" id="copy-status" role="status" aria-live="polite" style="position:absolute;left:-9999px"></p>
       </div>
     </div>
   </section>
@@ -286,7 +439,6 @@ footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); disp
 <footer>
   <div class="wrap">
     <span>© 2026 Kağan Yarımca</span>
-    <span>build: passing ✓</span>
   </div>
 </footer>
 
@@ -294,26 +446,48 @@ footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); disp
 (function () {
   var T = {
     en: {
-      "nav.about": "About", "nav.skills": "Skills", "nav.edu": "Education", "nav.contact": "Contact",
+      "skip": "Skip to content",
+      "nav.about": "About", "nav.exp": "Experience", "nav.skills": "Skills", "nav.edu": "Education", "nav.contact": "Contact",
       "hero.title": "Kağan Yarımca. I turn data into <em>meaningful insight.</em>",
-      "hero.lede": "I'm a software engineer working on data analysis with Python, SQL Server and big data tools.",
-      "hero.contact": "Get in touch",
+      "hero.lede": "I'm a software engineer working on data analysis, machine learning and AI, using Python and SQL Server to get measurable results from data.",
+      "hero.exp": "See my experience", "hero.contact": "Get in touch",
       "hero.status": "Open to opportunities · Aydın, Türkiye",
-      "label.about": "about", "label.skills": "skills", "label.edu": "education", "label.projects": "projects", "label.contact": "contact",
+      "exp.title": "Work experience",
+      "label.about": "about", "label.exp": "experience", "label.skills": "skills", "label.edu": "education", "label.projects": "projects", "label.contact": "contact",
       "about.title": "Hi, I'm Kağan.",
-      "about.p1": "I studied Software Engineering (taught in English) at Istanbul Aydın University. I'm early in my career and I enjoy working with data: collecting it, cleaning it, querying it, and turning it into results that help people make decisions.",
-      "about.p2": "I do data analysis with Python and SQL Server, and I'm building my skills in big data technologies.",
-      "facts.loc": "location", "facts.locv": "Aydın, Türkiye",
-      "facts.focus": "focus", "facts.focusv": "Data analysis",
-      "facts.exp": "experience", "facts.expv": "0-1 years",
+      "about.p1": "I'm a software engineer who graduated from Istanbul Aydın University in 2024. During my studies I focused on AI, data analysis and database management, and in my internships and work I've worked on machine learning models, data cleaning and SQL Server.",
+      "about.p2": "I work well in teams, I'm always learning, and I approach problems with a focus on solutions. Outside work I play chess and basketball, play the guitar and exercise regularly.",
+      "facts.focus": "focus", "facts.focusv": "Data analysis & AI",
+      "facts.edu": "graduated", "facts.eduv": "2024 · Software Eng.",
+      "facts.lang": "languages", "facts.langv": "English",
+      "exp1.title": "Data Analyst", "exp1.date": "Jan 2025 – Feb 2025",
+      "exp1.b1": "Supported senior engineers in developing and testing forecasting, classification and approximation models; contributed to a project that cut error rates by <span class=\"num\">12%</span>.",
+      "exp1.b2": "Worked on improving image recognition algorithms, raising detection rates by <span class=\"num\">10%</span>.",
+      "exp1.b3": "Collected, cleaned and engineered features on large datasets, reducing data inconsistencies by <span class=\"num\">15%</span>.",
+      "exp2.title": "Intern", "exp2.date": "Nov 2023 – Jan 2024",
+      "exp2.b1": "Worked with C# and .NET and built applications on Docker.",
+      "exp2.b2": "Gained experience in data modeling, querying and performance tuning with MS SQL Server.",
+      "exp3.title": "Intern", "exp3.date": "May 2023 – Jun 2023",
+      "exp3.b1": "Worked on keyword research, content optimization and SEO-friendly copywriting.",
+      "exp4.title": "AI Intern", "exp4.date": "Oct 2022 – Jan 2023",
+      "exp4.b1": "Built projects with Python and machine learning libraries, and learned version control with Git and GitHub.",
       "skills.title": "Technologies I work with",
-      "skills.bigdata": "Big Data", "skills.analysis": "Data Analysis",
+      "skills.ai": "Data & AI", "skills.analysis": "Data Analysis", "skills.ml": "Machine Learning", "skills.nn": "Neural Networks",
+      "skills.bigdata": "Big Data", "skills.deploy": "Model Deployment",
+      "skills.db": "Databases", "skills.modeling": "Data Modeling",
+      "skills.prog": "Programming & Tools",
+      "skills.soft": "Strengths", "skills.pm": "Project Management", "skills.tm": "Time Management", "skills.at": "Analytical Thinking", "skills.ps": "Problem Solving",
+      "edu.title": "Education & certificates",
       "edu.dept": "Software Engineering (English)", "edu.school": "Istanbul Aydın University",
+      "edu.certs": "Certificates & courses",
+      "c1.t": "AI Programming with C++", "c1.d": "Mar 2025", "c1.w": "Gamelab Istanbul · Computer vision, natural language processing, data analysis",
+      "c2.t": "Project Management", "c2.d": "Mar 2025", "c2.w": "SCA Social · Project management, IT law, AI and data science",
+      "c4.t": "Time Management", "c4.d": "Mar 2022",
       "projects.title": "My work",
       "projects.card": "My code and projects are on GitHub",
       "projects.go": "Open profile →",
       "contact.title": "Let's work together.",
-      "contact.p": "For job opportunities, internships or project ideas, reach me by email or on LinkedIn.",
+      "contact.p": "For job opportunities or project ideas, reach me by email or on LinkedIn.",
       "contact.copy": "Copy", "contact.copied": "Copied", "contact.select": "Selected, press Ctrl+C"
     },
     tr: { "contact.copied": "Kopyalandı", "contact.select": "Seçildi, Ctrl+C ile kopyala" }
@@ -342,6 +516,7 @@ footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); disp
 
   var btn = document.getElementById("copy-btn");
   var addr = document.getElementById("email");
+  var live = document.getElementById("copy-status");
   btn.addEventListener("click", function () {
     function selectFallback() {
       var r = document.createRange(); r.selectNodeContents(addr);
@@ -351,6 +526,7 @@ footer .wrap { padding-block: 28px 40px; border-top: 1px solid var(--line); disp
     try {
       navigator.clipboard.writeText(addr.textContent.trim()).then(function () {
         btn.textContent = T[current]["contact.copied"];
+        live.textContent = T[current]["contact.copied"];
         setTimeout(function () { btn.textContent = T[current]["contact.copy"]; }, 1800);
       }, selectFallback);
     } catch (e) { selectFallback(); }
